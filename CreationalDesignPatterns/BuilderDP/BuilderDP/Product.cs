@@ -1,3 +1,25 @@
 namespace BuilderDP;
 
-public record Product(string Name, string Description);
+public record Product(string Name, string Description)
+{
+   public  class Builder  
+    {
+        private string _name = "";
+        private string _description = "";
+    
+        public void BuildName( string name )
+        {
+            _name = name;
+        }
+
+        public void BuildDescription(string description)
+        {
+            _description = description;
+        }
+
+        public Product Build()
+        {
+            return  new Product(_name, _description);
+        }
+    }
+}
