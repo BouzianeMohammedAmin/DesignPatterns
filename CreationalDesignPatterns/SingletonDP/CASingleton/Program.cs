@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+Singleton singleton = Singleton.Instance; 
 
-Console.WriteLine("Hello, Singleton!");
+sealed class Singleton
+{
+ public static Singleton Instance { get; } = new ();
+ //private constructer
+ private Singleton(){}
+}
