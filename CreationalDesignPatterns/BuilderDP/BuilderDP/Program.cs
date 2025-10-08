@@ -16,6 +16,10 @@ using BuilderDP.Builder;
 Product product = new Product.Builder()
     .SetName("macobook pro 2018 ")
     .SetDescription("this  is a  macbook pro 2018 with 16gb ram and 512gb ssd ")
+    .SetOwner(owner =>
+        owner.SetName("amine")
+             .SetEmail("test@gmail.com")
+        )
     .Build();
 Console.WriteLine(product); 
  

@@ -1,6 +1,6 @@
 namespace BuilderDP;
 
-public record Product(string Name, string Description)
+public record Product(string Name, string Description , Owner owner)
 {
     //Nested Builder 
   /*  public  class Builder  
@@ -30,6 +30,7 @@ public record Product(string Name, string Description)
   {
       private string _name = "";
       private string _description = "";
+      private Owner _owner = null!;
     
       public Builder SetName( string name )
       {
@@ -42,10 +43,19 @@ public record Product(string Name, string Description)
           _description = description;
           return this;
       }
+      public Builder SetOwner(Action<Owner.Builder> action)
+      {
+          
+          var ownerBuilder = new Owner.Builder();
+            action(ownerBuilder);
+          _owner = ownerBuilder.Build();
+          return this;
+      }
+      
 
       public Product Build()
       {
-          return  new Product(_name, _description);
+          return  new Product(_name, _description , _owner);
       }
   }
 }

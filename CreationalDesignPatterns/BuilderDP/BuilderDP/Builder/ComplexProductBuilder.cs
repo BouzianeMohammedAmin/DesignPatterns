@@ -17,6 +17,8 @@ public class ComplexProductBuilder : IBuilder
 
     public Product Build()
     {
-      return  new Product(_name, _description);
+    //  return  new Product(_name, _description);
+
+    return null; 
     }
 }
